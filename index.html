@@ -35,7 +35,14 @@
       // prototype, agrega al objeto ya creado
       // le asicgnamos la función play
       MediaPlayer.prototype.play = function() {
-        this.media.play();
+        if (this.media.paused) {  // Verificamos el estado del video para la opción play o pausa
+          this.media.play();
+        } else {
+          this.media.pause();
+        }
+
+        // o podemos usar lo siguiente:
+        // this.media.paused ? this.media.play() : this.media.pause()
       };
 
       // Instanciamos al objeto MediaPlayer

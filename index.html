@@ -25,6 +25,9 @@
     <!-- Podemos agregar antes de src, defer o async, ambos asíncronos pero en defer la respuesta llegará al terminar de leer el DOM y con async no se detendrá el DOM hasta que la respuesta llegue-->
     <!-- <script defer src="/assets/index.js"></script> -->
     <!-- <script async src="/assets/index.js"></script> -->
-    <script src="/assets/index.js"></script>
+    <!-- <script src="/assets/index.js"></script> -->
+    
+    <!-- Declaramos que el archivo está en un módulo, lo que permite limitar el alcance a un Module Scope -->
+    <script type="module" src="/assets/index.js"></script>
   </body>
 </html>

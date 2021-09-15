@@ -1,0 +1,14 @@
+{
+  "name": "cursojavascript_profesional",
+  "version": "1.0.0",
+  "description": "Proyecto del Curso Profesional de JavaScript de la Escuela de JavaScript de Platzi.",
+  "main": "index.js",
+  "scripts": {
+    "start": "parcel index.html ejercicios/index.html ejercicios/**/*.html"
+  },
+  "keywords": [
+    "platzi"
+  ],
+  "author": "Gerson Andrade Escobar <g.gerson51@gmail.com>",
+  "license": "MIT"
+}

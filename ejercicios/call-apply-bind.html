@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>This</title>
 </head>
+
 <body>
     <a href="/ejercicios/">Go back</a>
     <p><em>Abre la consola</em></p>
@@ -54,7 +56,7 @@
 
         // Establece 'this' en una nueva función usando 'bind'
         /* Construye una nueva función con el this integrado  */
-        const daniel = { name: "Daniel", apellido: "Sánchez"};
+        const daniel = { name: "Daniel", apellido: "Sánchez" };
         const danielSaluda = saludar.bind(daniel);
         danielSaluda();
         /* Hola. Soy Daniel Sánchez */
@@ -83,6 +85,16 @@
         Array.prototype.forEach.call(buttons, button => {
             button.onclick = () => alert('Nunca pares de aprender!');
         });
+
+        /* Más simple con NodeList */
+        const buttons1 = document.getElementsByClassName('call-to-action');
+
+        [...buttons1].forEach(button => {
+            button.onclick = () => {
+                alert('no pares de aprender')
+            }
+        });
     </script>
 </body>
+
 </html>

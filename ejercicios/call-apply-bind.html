@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>This</title>
+</head>
+<body>
+    <a href="/ejercicios/">Go back</a>
+    <p><em>Abre la consola</em></p>
+
+    <ul>
+        <li><button class="call-to-action">Aprender</button></li>
+        <li><button class="call-to-action">Aprender Más</button></li>
+        <li><button class="call-to-action">¡Nunca parar de Aprender!</button></li>
+    </ul>
+
+    <script>
+        // Establece 'this' usando 'call'
+        function saludar() {
+            console.log(`Hola. Soy ${this.name} ${this.apellido}`);
+        }
+
+        const richard = {
+            name: "Richard",
+            apellido: "Kaufman López"
+        }
+
+        saludar.call(richard);
+        /* Hola. Soy Richard Kaufman López */
+
+        // Establece 'this' usando 'call' y pasar argumentos a la función
+        function caminar(metros, direccion) {
+            console.log(`${this.name} camina ${metros} metros hacia ${direccion}.`);
+        }
+
+        caminar.call(richard, 400, "norte");
+        /* Richard camina 400 metros hacia norte. */
+
+        // Establece 'this' usando 'apply' y pasar argumentos a la función
+        caminar.apply(richard, [800, "noreste"]);
+        /* Richard camina 800 metros hacia noreste. */
+
+        /* con arreglo de valores */
+        const valores = [800, 'noreste']
+        caminar.apply(richard, valores);
+        /* Richard camina 800 metros hacia noreste. */
+
+        /*
+            Call - comma
+            Apply - arreglo
+        */
+
+        // Establece 'this' en una nueva función usando 'bind'
+        /* Construye una nueva función con el this integrado  */
+        const daniel = { name: "Daniel", apellido: "Sánchez"};
+        const danielSaluda = saludar.bind(daniel);
+        danielSaluda();
+        /* Hola. Soy Daniel Sánchez */
+
+        /* Bind con argumentos */
+        const danielCamina = caminar.bind(daniel);
+        danielCamina(1000, 'este');
+        /* Daniel camina 1000 metros hacia este. */
+
+        /* Otras formas de enviar los argumentos */
+        const danielCamina = caminar.bind(daniel, 2000, 'sur');
+        danielCamina();
+        /* Daniel camina 2000 metros hacia sur. */
+
+        const danielCamina = caminar.bind(daniel, 2000);       // Técnica llamada Currying, permite guardar los argumentos parcialmente y luego se llenan los demás
+        danielCamina('oeste');
+        /* Daniel camina 2000 metros hacia oeste. */
+
+        // Cuando es útil usar uno de estos métodos
+        const buttons = document.getElementsByClassName("call-to-action");
+        // buttons.forEach(button => {
+        //     button.onclick = () => alert('Nunca pares de aprender!');
+        // });
+
+        /* NodeList */
+        Array.prototype.forEach.call(buttons, button => {
+            button.onclick = () => alert('Nunca pares de aprender!');
+        });
+    </script>
+</body>
+</html>

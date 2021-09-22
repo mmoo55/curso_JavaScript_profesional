@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prototypal-inheritance</title>
+</head>
+
+<body>
+    <a href="/ejercicios/">Go back</a>
+    <p><em>Abre la consola</em></p>
+
+    <h1><code>SomeObject.prototype</code> es un objeto donde definimos el prototipo de las instancias de SomeObject. Es decir, las instancias de SomeObject van a "heredar" de SomeObject.prototype.</h1>
+    <h2><code>SomeObject.[[Prototype]] es el prototipo de SomeObject. Es decir, SomeObject "hereda" de <code>SomeObject.prototype</code></code></h2>
+    <script>
+        
+        function Hero(name) {   // Constructor
+            this.name = name;
+        }
+
+        Hero.prototype.saludar = function () {
+            console.log(`Hola, soy ${this.name}`);
+        };
+
+        const zelda = new Hero("Zelda");
+        zelda.saludar();
+
+        // Propiedades de la instancia
+        console.log('Name:', zelda.name);
+
+        // Propiedades de la "clase"
+        console.log('Saludar:', zelda.saludar);
+        console.log('toString:', zelda.toString);
+        
+        // Propiedades heredadas ej: toString
+        /* Sirve para inspeccionar si algo le pertenece directamente a un objeto o lo toma prestado a través de herencia */
+        console.log('zelda.hasOwnProperty("name"):', zelda.hasOwnProperty("name"));
+        /* true */
+        console.log('zelda.hasOwnProperty("saludar"):', zelda.hasOwnProperty("saludar"));
+        /* false */
+        
+        // hasOwnProperty (de dónde sale toString o esto?)
+
+        /* Object.getPrototypeOf(zelda);
+            // nos devuelve el prototipo */
+
+        // Inspeccionamos el prototipo del zelda
+
+        /* const prototypeOfZelda = Object.getPrototypeOf(zelda);
+
+        prototypeOfZelda === Hero.prototype
+        // true */
+
+        // Inspeccionamos el prototipo de Hero
+
+        /* Hero.prototype.fight = function() {console.log("FIGHT!")}
+        zelda.fight();
+        console.log('zelda.hasOwnProperty("fight"):', zelda.hasOwnProperty("fight"));
+        // false */
+
+        /* console.log('prototypeOfZelda.hasOwnProperty("toString"):', prototypeOfZelda.hasOwnProperty("toString"));
+        // false */
+
+        // Inspeccionamos el prototipo del Object
+
+        /* const prototypeOfPrototypeZelda = Object.getPrototypeOf(Hero.prototype);
+        prototypeOfPrototypeZelda
+
+        prototypeOfPrototypeZelda.hasOwnProperty("toString");
+        // true */
+
+        /* Object.hasOwnProperty("bestFriend");
+        // false
+
+        const prototypeOfObject = Object.getPrototypeOf(Object.prototype) */
+    </script>
+</body>
+
+</html>

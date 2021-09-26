@@ -10,7 +10,7 @@ const video = document.querySelector('video')
 // Instanciamos al objeto MediaPlayer
 const player = new MediaPlayer({
     el: video, plugins: [
-        // new AutoPlay()
+        new AutoPlay()
     ]
 });
 

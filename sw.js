@@ -1,7 +1,7 @@
 const VERSION = 'v1';
 
-/* self es como el this pero específico para los serviceWorkers */
-self.addEventListener('install', event => {     /* se llmaa cuando el navegador instale el serviceWorker */
+/* self es como el this pero específico para los service-workers */
+self.addEventListener('install', event => {     /* se llmaa cuando el navegador instale el service-worker */
     event.waitUntil(precache());    /* Agarramos lo que esta en cache para regresarlo al navegador */
 });
 

@@ -23,3 +23,18 @@ button.onclick = () => player.togglePlay()
 
 const muteUnmute = document.querySelector('#muteUnmute')
 muteUnmute.onclick = () => player.toggleMute()
+
+/* const muteUnmute = document.querySelector('#muteUnmute')
+muteUnmute.onclick = () => {
+    if (player.media.muted) {
+        player.unmute();
+    } else {
+        player.mute();
+    }
+}; */
+
+if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/sw.js').catch(error => {
+        console.log(error.message);
+    });
+}

@@ -3,6 +3,7 @@
 
 import MediaPlayer from './MediaPlayer.js';
 import AutoPlay from './plugins/AutoPlay.js';
+import AutoPause from './plugins/AutoPause.js';
 
 
 // querySelector, devuelve el primer elemento que coincida
@@ -10,7 +11,8 @@ const video = document.querySelector('video')
 // Instanciamos al objeto MediaPlayer
 const player = new MediaPlayer({
     el: video, plugins: [
-        new AutoPlay()
+        new AutoPlay(),
+        new AutoPause()
     ]
 });
 

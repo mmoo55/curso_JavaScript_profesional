@@ -4,7 +4,7 @@
   "description": "Proyecto del Curso Profesional de JavaScript de la Escuela de JavaScript de Platzi.",
   "main": "index.js",
   "scripts": {
-    "start": "live-server"
+    "start": "parcel index.html ejercicios/index.html ejercicios/**/*.html"
   },
   "keywords": [
     "platzi"
@@ -12,6 +12,9 @@
   "author": "Gerson Andrade Escobar <g.gerson51@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "live-server": "^1.2.1"
-  }
+    "parcel-bundler": "^1.9.4"
+  },
+  "browserslist": [
+    "last 1 Chrome version"
+  ]
 }

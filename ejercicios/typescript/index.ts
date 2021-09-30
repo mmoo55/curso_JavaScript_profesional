@@ -57,7 +57,7 @@ function add(a: number, b: number): number {    /* El ultimo valor nos dice que 
 
 const sum = add(4, 6);
 
-                                /* Representa lo que devuelve la función, en este caso toma un número (number) y devuelve un número => number, lo cual indica que el valor de regreso es una función */
+/* Representa lo que devuelve la función, en este caso toma un número (number) y devuelve un número => number, lo cual indica que el valor de regreso es una función */
 function createAdder(a: number): (number) => number {
     return function (b: number) {
         return b + a;
@@ -81,3 +81,38 @@ function fullName1(firstName: string, lastName: string = 'Smith'): string {
 
 const richard1 = fullName1('Agente');
 console.log(richard1);
+
+
+// Interfaces
+enum Color1 {
+    Rojo = 'Rojo',
+    Verde = 'Verde',
+}
+
+interface Rectangulo {
+    ancho: number;
+    alto: number;
+    color?: Color;     /* Será opcional con el signo de interrogación */
+}
+
+/* Las interfaces se vuelven como Tipo, en este caso de Rectángulo */
+let rect: Rectangulo = {
+    ancho: 4,
+    alto: 6,
+    // color: Color.Rojo,
+};
+
+function area(r: Rectangulo): number {
+    return r.alto * r.ancho;
+}
+
+const areaRect = area(rect);
+console.log(areaRect);
+
+// console.log(rect.toString());
+
+rect.toString = function () {
+    return this.color ? `Un rectangulo ${this.color}` : `Un rectangulo`;
+};
+
+console.log(rect.toString());

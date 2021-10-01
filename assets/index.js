@@ -4,6 +4,8 @@
 import MediaPlayer from './MediaPlayer.js';
 import AutoPlay from './plugins/AutoPlay.js';
 import AutoPause from './plugins/AutoPause.js';
+// Para importar el archivo ts
+/* import AutoPause from './plugins/AutoPause.ts'; */
 
 
 // querySelector, devuelve el primer elemento que coincida

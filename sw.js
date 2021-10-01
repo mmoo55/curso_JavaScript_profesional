@@ -23,7 +23,7 @@ async function precache() {
     const cache = await caches.open(VERSION);       /* Nos da una instancia del cache que se llama VERSION */
     /* Añadimos los recursos */
     return cache.addAll([
-        '/',
+        '/',                             /* parcel cambia de directorio usando dist, para continuar con ts comentar todo este bloque de strings */
         '/index.html',
         '/assets/index.js',
         '/assets/MediaPlayer.js',

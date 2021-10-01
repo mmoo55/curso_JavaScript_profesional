@@ -23,7 +23,7 @@ class AutoPause {
     }
 
     /* Definimos el tipo de entries y las dos funciones los ponemos en privado porque nadie necesita llamarlos solo dentro de la misma clase */
-    private handleIntersection(entries: IntersectionObserverEntry) {
+    private handleIntersection(entries: IntersectionObserverEntry[]) {
         const entry = entries[0];
 
         const isVisible = entry.intersectionRatio >= this.threshold;
